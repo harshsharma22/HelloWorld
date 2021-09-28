@@ -1,0 +1,28 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "Hello World",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint src",
+    "lint-fix": "eslint --fix src",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshsharma22/HelloWorld.git"
+  },
+  "author": "harshsharma22",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harshsharma22/HelloWorld/issues"
+  },
+  "homepage": "https://github.com/harshsharma22/HelloWorld#readme",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "lint": "^0.7.0",
+    "nodemon": "^2.0.13"
+  }
+}
