@@ -1,7 +1,7 @@
 name: Docker Image CI
 on:
-  tag:
-    branches: [ main ]
+  release:
+    types: [ created ]
 jobs:
   build:
     runs-on: ubuntu-latest
