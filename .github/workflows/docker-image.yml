@@ -41,9 +41,7 @@ jobs:
         chmod +x kompose
         VERSION1=${GITHUB_RUN_NUMBER}
         sudo mv ./kompose /usr/local/bin/kompose
-        echo $VERSION1
-        sed -e "s/\${VERSION}/$VERSION1/" docker-compose.yml && cat docker-compose.yml
-        cat docker-compose.yml
+        sed -e "s/\${VERSION}/$VERSION1/" docker-compose.yml && cat docker-compose.yml && mkdir deploy && kompose convert -o deploy && KUBECONFIG=${{ secrets.NONPROD_KUBE_CONFIG }} kubectl -n default apply -f deploy`
         
 
         
