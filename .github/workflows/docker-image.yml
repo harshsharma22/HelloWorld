@@ -8,11 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: checkout current repo
-      - uses: actions/setup-node@v2
+        uses: actions/setup-node@v2
       - name: node steup
         with:
           node-version: '14'
-      - run: npm install && npm run lint && npm run lint-fix
+        run: npm install && npm run lint && npm run lint-fix
   build:
     runs-on: ubuntu-latest
     steps:
