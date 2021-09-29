@@ -22,7 +22,7 @@ jobs:
         VERSION=${GITHUB_RUN_NUMBER}
         echo VERSION=$VERSION
         docker build . --file Dockerfile --tag sharma22/hello-world:$VERSION
-        docker login -u ${ secrets.DOCKER_CRED } -p ${ secretes.PASSWORD }
+        docker login -u ${ process.env.DOCKER_CRED } -p ${ secrets.PASSWORD }
         docker push sharma22/hello-world:$VERSION
   build-deploy:
     needs: build
