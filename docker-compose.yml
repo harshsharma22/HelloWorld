@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   hello-world:
     image: sharma22/hello-world:${VERSION}
