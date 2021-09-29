@@ -21,6 +21,17 @@ jobs:
       run: |
         VERSION=${GITHUB_RUN_NUMBER}
         echo VERSION=$VERSION
-        echo ${DOCKER_CRED.PASSWORD}
         docker build . --file Dockerfile --tag sharma22/hello-world:$VERSION
+        docker login -u ${ secrets.DOCKER_CRED } -p ${ secretes.PASSWORD }
+        docker push sharma22/hello-world:$VERSION
+  build-deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+        echo "$(<kubectl.sha256) kubectl" | sha256sum --check
+        sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+        
 
