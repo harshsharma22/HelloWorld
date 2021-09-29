@@ -13,11 +13,12 @@ jobs:
         uses: actions/setup-node@v2  
       - run: npm install && npm run lint && npm run lint-fix
   build:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        VERSION=$(node -p process.env.GITHUB_REF.split("/")[2].split("v")[1])
+        VERSION=$(node -p 'process.env.GITHUB_REF.split("/")[2].split("v")[1]')
         docker build . --file Dockerfile --tag sharma22/hello-world:$VERSION
 
