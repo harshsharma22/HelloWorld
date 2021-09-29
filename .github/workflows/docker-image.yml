@@ -25,7 +25,6 @@ jobs:
         docker login -u sharma22 -p ${{ secrets.PASSWORD }}
         docker push sharma22/hello-world:$VERSION
   build-deploy:
-    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: checkout
