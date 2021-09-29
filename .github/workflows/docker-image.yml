@@ -33,7 +33,6 @@ jobs:
       uses: actions/setup-node@v2
     - run: |
         echo $pwd && ls
-        echo kubectl version --client
         curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
         chmod +x kompose
         VERSION1=${GITHUB_RUN_NUMBER}
