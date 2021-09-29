@@ -36,10 +36,10 @@ jobs:
         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
         curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
         echo "$(<kubectl.sha256) kubectl" | sha256sum --check
-        sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+        install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
         echo $pwd && ls
         curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
         chmod +x kompose
         VERSION1=${GITHUB_RUN_NUMBER}
         sudo mv ./kompose /usr/local/bin/kompose
-        mkdir deploy && sed -e "s/\${VERSION}/$VERSION1/" docker-compose.yml > new-docker-compose.yml && kompose -f new-docker-compose.yml convert -o deploy && cd deploy && sudo KUBECONFIG=${{ secrets.NONPROD_KUBE_CONFIG }} /usr/local/bin/kubectl apply -f
+        mkdir deploy && sed -e "s/\${VERSION}/$VERSION1/" docker-compose.yml > new-docker-compose.yml && kompose -f new-docker-compose.yml convert -o deploy && cd deploy && KUBECONFIG=${{ secrets.NONPROD_KUBE_CONFIG }} /usr/local/bin/kubectl apply -f
