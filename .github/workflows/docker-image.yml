@@ -18,11 +18,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
+      env:
+        USER_NAME: ${{ secrets.DOCKER_CRED }}
       run: |
         VERSION=${GITHUB_RUN_NUMBER}
         echo VERSION=$VERSION
         docker build . --file Dockerfile --tag sharma22/hello-world:$VERSION
-        echo ${{env.DOCKER_CRED}}
+        echo docker_cred=$USER_NAME
         docker push sharma22/hello-world:$VERSION
   build-deploy:
     needs: build
