@@ -21,6 +21,6 @@ jobs:
       run: |
         VERSION=${GITHUB_RUN_NUMBER}
         echo VERSION=$VERSION
-        echo ${DOCKER_CRED}
+        echo ${DOCKER_CRED.PASSWORD}
         docker build . --file Dockerfile --tag sharma22/hello-world:$VERSION
 
