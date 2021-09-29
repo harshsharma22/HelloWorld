@@ -1,16 +1,17 @@
 name: Docker Image
 on:
   push:
-    branch: [ main ]
+    branches: [ main ]
+    
 jobs:
   lint: 
-    run-on: ubuntu-latest
+    rusn-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      name: check out 
-    - uses: actions/setup-node@v2
-      name: setup node
-    - run: npm install && npm run lint && npm run lint-fix
+      - name: checkout
+        uses: actions/checkout@v2 
+      - name: setup node
+        uses: actions/setup-node@v2  
+      - run: npm install && npm run lint && npm run lint-fix
   build:
     runs-on: ubuntu-latest
     steps:
