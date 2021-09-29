@@ -19,8 +19,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       env:
-        username: ${{ secrets.DOCKER_CRED }}
-        password: ${{ secrets.PASSWORD }}
+        USERNAME: ${{ secrets.DOCKER_CRED }}
+        PASSWORD: ${{ secrets.PASSWORD }}
       run: |
         VERSION=${GITHUB_RUN_NUMBER}
         echo VERSION=$VERSION
