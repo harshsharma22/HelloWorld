@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        VERSION=${GITHUB_RUN_NUMBER}
+        VERSION=${GITHUB_RUN_NUMBER} >> $GITHUB_ENV
         echo VERSION=$VERSION
         docker build . --file Dockerfile --tag sharma22/hello-world:$VERSION
         docker login -u sharma22 -p ${{ secrets.PASSWORD }}
@@ -42,8 +42,8 @@ jobs:
         curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
         chmod +x kompose
         sudo mv ./kompose /usr/local/bin/kompose
-        echo $VERSION
-        envsub --env VERSION=$VERSION docker-compose.yml docker-compose.yml && cat  docker-compose.yml
+        echo ${{env.VERSION}}
+        envsub --env VERSION=${{env.VERSION}} docker-compose.yml docker-compose.yml && cat  docker-compose.yml
         cat docker-compose.yml
         
 
