@@ -44,8 +44,8 @@ jobs:
         sudo mv ./kompose /usr/local/bin/kompose
         echo $VERSION
         npm install -g shelljs
-        echo ls
-        sed('-i', '${VERSION}', '$VERSION', docker-compose.yml)
+        require('shelljs/global')
+        sed('-i','${VERSION}','$VERSION',docker-compose.yml)
         cat docker-compose.yml
         
 
