@@ -45,8 +45,7 @@ jobs:
         echo $VERSION
         npm install -g shelljs
         echo ls
-        require('shelljs/global');
-        sed('-i', '${VERSION}', '$VERSION', docker-compose.yml);
+        sed('-i', '${VERSION}', '$VERSION', docker-compose.yml)
         cat docker-compose.yml
         
 
