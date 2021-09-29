@@ -2,9 +2,7 @@ name: Docker Image
 on:
   push:
     branches: [ main ]
-with:
-  env:
-    VERSION=${GITHUB_RUN_NUMBER}
+
 jobs:
   lint: 
     runs-on: ubuntu-latest
@@ -42,6 +40,7 @@ jobs:
         echo $pwd && ls
         curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
         chmod +x kompose
+        VERSION=${GITHUB_RUN_NUMBER}
         sudo mv ./kompose /usr/local/bin/kompose
         echo $VERSION
         npm install [-g] shelljs
