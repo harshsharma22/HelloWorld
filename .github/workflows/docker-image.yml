@@ -43,7 +43,7 @@ jobs:
         VERSION=${GITHUB_RUN_NUMBER}
         sudo mv ./kompose /usr/local/bin/kompose
         echo $VERSION
-        npm install [-g] shelljs
+        npm install -g shelljs
         echo ls
         require('shelljs/global');
         sed('-i', '${VERSION}', '$VERSION', docker-compose.yml);
