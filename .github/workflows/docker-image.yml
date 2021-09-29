@@ -36,6 +36,6 @@ jobs:
         echo "$(<kubectl.sha256) kubectl" | sha256sum --check
         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
         echo $pwd && ls
-        envsubst $VERSION < ".env" > .env1
+        envsubst $VERSION < .env > .env1
 
         
