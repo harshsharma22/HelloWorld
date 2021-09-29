@@ -12,7 +12,7 @@ jobs:
     - name: node steup
       with:
         node-version: '14'
-      run: npm install && npm run lint && npm run lint-fix
+    - run: npm install && npm run lint && npm run lint-fix
   build:
     runs-on: ubuntu-latest
     steps:
