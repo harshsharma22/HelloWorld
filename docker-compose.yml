@@ -1,0 +1,9 @@
+version: "3"
+services:
+  hello-world:
+    environment:
+    image: sharma22/hello-world:${VERSION}
+    labels:
+      kompose.image-pull-secret: "secret"
+    ports:
+      - "80"
