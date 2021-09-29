@@ -39,12 +39,10 @@ jobs:
         echo $pwd && ls
         curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
         chmod +x kompose
-        VERSION=${GITHUB_RUN_NUMBER}
+        VERSION1=${GITHUB_RUN_NUMBER}
         sudo mv ./kompose /usr/local/bin/kompose
-        echo $VERSION
-        npm install -g shelljs
-        require('shelljs/global')
-        sed('-i','${VERSION}','$VERSION',docker-compose.yml)
+        echo $VERSION1
+        sed -e "s/\${VERSION}/$VERSION1/" docker-compose.yml && cat docker-compose.yml
         cat docker-compose.yml
         
 
