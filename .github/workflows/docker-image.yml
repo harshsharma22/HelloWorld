@@ -43,7 +43,7 @@ jobs:
         chmod +x kompose
         sudo mv ./kompose /usr/local/bin/kompose
         echo $VERSION
-        envsub --env VERSION=$VERSION docker-compose.yml docker-compose.yml
+        envsub --env VERSION=$VERSION docker-compose.yml docker-compose.yml && cat  docker-compose.yml
         cat docker-compose.yml
         
 
