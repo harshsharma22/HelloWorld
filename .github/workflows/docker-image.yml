@@ -19,6 +19,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        VERSION=$(node -p 'process.env.GITHUB_REF.split("/")[2].split("v")[1]')
+        VERSION=process.env.GITHUB_RUN_NUMBER
+        echo VERSION=$VERSION
         docker build . --file Dockerfile --tag sharma22/hello-world:$VERSION
 
