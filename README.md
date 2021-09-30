@@ -2,12 +2,12 @@
 
 A Basic Simple CI/CD solution using github action which deploy app on kubernetes on every push on branch main
 
-## Imporant file
+## Imporant File
 
 **DOCKERFILE** :- This file creates a docker image of our nodejs application\
 **DOCKER-COMPOSE.YML** :- This file defines our application as contianer
 
-## UTILITIES USED INSIDE GITHUB ACTIONS
+## UTilities Used Inside Github Actions
 
 action/checkout@v2 :- This action is used to checkout the current repo\
 action/setup-node@v2 :- Setup up nodejs\
@@ -22,9 +22,9 @@ jobs:-\
   1:- lint job : This Job check for the lint error in our  nodejs application\
   2:- build job: This Job create and push image onto docker hub.\
   3:- build-deploy: This job deploy build image to the kubernetes when there a push happens on main branch.\
-**NOTE:- KUBECONFIG file should be convert to base64 **
+**NOTE:- KUBECONFIG file should be convert to base64**
 
-## Steps followed
+## Steps Followed
 
 1:- Created  a github respository\
 2:- Created a basic app to return Hello World\
