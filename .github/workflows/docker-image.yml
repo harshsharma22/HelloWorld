@@ -1,4 +1,4 @@
-name: Docker Image
+name: Docker Image build and deploy
 on:
   push:
     branches: [ main ]
