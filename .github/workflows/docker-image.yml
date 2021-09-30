@@ -38,5 +38,5 @@ jobs:
         VERSION1=${GITHUB_RUN_NUMBER}
         sudo mv ./kompose /usr/local/bin/kompose
         mkdir deploy && sed -e "s/\${VERSION}/$VERSION1/" docker-compose.yml > new-docker-compose.yml && kompose -f new-docker-compose.yml convert -o deploy
-        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl && kubectl version --client && KUBECONFIG=${{ secrets.NONPROD_KUBE_CONFIG }} kubectl apply -f deploy
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && ./kubectl version --client && KUBECONFIG=${{ secrets.NONPROD_KUBE_CONFIG }} ./kubectl apply -f deploy
 
