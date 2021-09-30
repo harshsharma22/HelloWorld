@@ -26,11 +26,11 @@ jobs:-\
 
 ## Steps followed
 
-1:- created  a github respository\
-2:- created a basic app to return Hello World\
-3:- setup github action to deploy app to kubernetes\
-4:- create k3s  cluster\
-5:- copy kubeconfig file to base 64  format
+1:- Created  a github respository\
+2:- Created a basic app to return Hello World\
+3:- Setup github action to deploy app to kubernetes\
+4:- Create k3s  cluster\
+5:- Copy kubeconfig file to base 64  format
 
 ## Components Used
 
