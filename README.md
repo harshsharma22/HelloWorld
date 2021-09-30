@@ -10,7 +10,7 @@ A Basic Simple CI/CD solution using github action which deploy app on kubernetes
 ## UTILITIES USED INSIDE GITHUB ACTIONS
 
 action/checkout@v2 :- This action used to checkout the current repo\
-action/setup-node@v2 :- setup up nodejs\ 
+action/setup-node@v2 :- Setup up nodejs\ 
 kompose :- Convert docker-compose file to kubernetes yml file\
 steebchen/kubectl@v2.0.0 :- This action uses kubectl as utility
 
