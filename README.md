@@ -20,7 +20,7 @@ This Project Contain a basic **HELLO WORLD** nodejs application runs on port 300
 The **CI/CD** contain 3 job which run on every push on main branch\
 jobs:-\
   1:- lint job : This Job check for the lint error in our  nodejs application\
-  2:- build job: This Job create and push image onto docker hub.\
+  2:- build job: This Job create and push image into docker hub.\
   3:- build-deploy: This job deploy build image to the kubernetes when there a push happens on main branch.\
 **NOTE:- KUBECONFIG file should be converted to base64**
 
