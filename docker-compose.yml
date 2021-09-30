@@ -5,4 +5,4 @@ services:
     labels:
       kompose.image-pull-secret: "secret"
     ports:
-      - "80"
+      - "3000"
